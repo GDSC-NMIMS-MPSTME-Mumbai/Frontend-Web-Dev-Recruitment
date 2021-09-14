@@ -1,0 +1,239 @@
+.desktop{
+position: relative;
+width: 1440px;
+height: 1170px;
+background: #F4F6F8;
+}
+.title{
+position: absolute;
+width: 151px;
+height: 41px;
+left: 189px;
+top: 25px;
+font-family: Abril Fatface;
+font-style: normal;
+font-weight: normal;
+font-size: 46px;
+line-height: 49px;
+color: #ffffff;
+}
+.design{
+    position: absolute;
+    width: 1440px;
+    height: 160px;
+    left: 0px;
+    top: 1px;
+    background: #5964E0;
+    border-radius: 0px 0px 0px 100px;
+}
+.triangle1{
+    position: absolute;
+    width: 473px;
+    height: 488px;
+    left: -196px;
+    top: 120.31px;
+    background: #FFFFFF;
+    mix-blend-mode: normal;
+    opacity: 0.08;
+    transform: rotate(34.71deg);
+ }
+.triangle2{
+    position: absolute;
+    width: 473px;
+    height: 488px;
+    left: 279px;
+    top: -427.69px;
+    background: #FFFFFF;
+    mix-blend-mode: normal;
+    opacity: 0.08;
+    border-radius: 35px;
+    transform: rotate(-34.71deg);
+
+ }
+.triangle3{
+    position: absolute;
+    width: 473px;
+    height: 488px;
+    left: 919.47px;
+    top: 64.57px;
+    background: #FFFFFF;
+    mix-blend-mode: normal;
+    opacity: 0.08;
+    border-radius: 35px;
+    transform: rotate(141.81deg);
+ }
+
+ /* ------------------------------------------------ICONS----------------------------------------- */
+.icon-sun, .icon-moon{
+    position: absolute;
+    width: 17.27px;
+    height: 17.27px;
+    left: 1146px;
+    top: 60px;
+    color: #FFFFFF;
+    font-size: 27px;
+ }
+.icon-moon{left: 1260px}
+.ps{
+    position: absolute;
+width: 19px;
+height: 19px;
+margin-left: 12px;
+margin-top: 12px;
+color: #FFFFFF;
+    font-size: 27px;
+}
+ /* ------------------------------------------------TOOGE SWITCH----------------------------------------- */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    left: 1190px;
+    top: 83px
+  }
+  
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ffffff;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #5964E0;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+input:checked + .slider {
+    background-color: #5964E0;
+  }
+  
+input:focus + .slider {
+    box-shadow: 0 0 1px #ffffff;
+  }
+  
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+    background-color: #ffffff;
+  } 
+.slider.round {border-radius: 34px;}
+.slider.round:before {border-radius: 50%;}
+
+ /* ------------------------------------------------JOBS----------------------------------------- */
+/* SECTIONS */
+.col{
+position: absolute;
+width: 350px;
+height: 228px;
+background: #FFFFFF;
+mix-blend-mode: normal;
+border-radius: 6px;
+}
+.one{top: 305px;}
+.two{top: 598px;}
+.three{top: 891px}
+.span-1-of-3{left: 165px;}
+.span-2-of-3{left: 545px;}
+.span-3-of-3{left: 925px;}
+
+
+/* COMPANY LOGO (cl) */
+.logo{
+position: absolute;
+width: 50px;
+height: 50px;
+border-radius: 15px;
+z-index: 2;
+}
+.cl1{left: 210px;}
+.cl2{left: 590px;}
+.cl3{left: 970px;}
+.row1{top: 280px; background: #DF6DAE;}
+.row2{top: 580px; background: #222121;}
+.row3{top: 870px; background: #60DCAD;
+    ;}
+/* DETAILS */
+
+.time, .type{
+font-family: 'Times New Roman', Times, serif;
+font-size: 18px;
+line-height: 16px;
+color: #6E8098;
+margin: 45px 0 20px 45px;
+}
+.type{margin-top: 12px;}
+.position{
+    font-size: 20px;
+    font-family: Abril Fatface;
+    margin: 5px 0 6px 45px;
+}
+.location{
+    font-size: 16px;
+    font-family: Abril Fatface;
+    margin: 5px 0 6px 45px;
+    color: #5964E0;
+}
+/* ------------------------------------------------BUTTON----------------------------------------- */
+.butt{
+    background: #F4F6F8;
+    width: 1440px;
+    height: 45px;
+}
+.btn:link,
+.btn:visited{
+    display: inline-block;
+    padding: 8px 20px;
+    font-family: Abril Fatface;
+    text-decoration: none;
+    font-size: 19px;
+    font-weight: 400;
+    color: #fff;
+    height: 28px;
+    margin-left: 649px;
+    top: 1468px;
+    border-radius: 5px;
+}
+.btn:hover,
+.btn:active{
+    background-color: #5964E0
+}
+
+.btn-full:link,
+.btn-full:visited{
+    background-color: #5964E0;
+    border: 1px solid #5964E0;
+    margin-right: 10px;
+}
+.btn-full:hover,
+.btn-full:active{
+    background-color: #FFFFFF;
+    border: 1px solid #5964E0;
+    color: #5964E0;
+}
+
+
+.desktop {
+    background-color: black;
+    color: white;
+  }
