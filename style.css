@@ -76,14 +76,14 @@ color: #ffffff;
 .icon-moon{left: 1260px}
 .ps{
     position: absolute;
-width: 19px;
-height: 19px;
-margin-left: 12px;
-margin-top: 12px;
-color: #FFFFFF;
+    width: 19px;
+    height: 19px;
+    margin-left: 12px;
+    margin-top: 12px;
+    color: #FFFFFF;
     font-size: 27px;
 }
- /* ------------------------------------------------TOOGE SWITCH----------------------------------------- */
+ /* ------------------------------------------------TOOGLE SWITCH----------------------------------------- */
 .switch {
     position: relative;
     display: inline-block;
@@ -231,9 +231,3 @@ margin: 45px 0 20px 45px;
     border: 1px solid #5964E0;
     color: #5964E0;
 }
-
-
-.desktop {
-    background-color: black;
-    color: white;
-  }
