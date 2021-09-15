@@ -231,3 +231,7 @@ margin: 45px 0 20px 45px;
     border: 1px solid #5964E0;
     color: #5964E0;
 }
+
+.dark-mode{
+    background-color: black;
+}
