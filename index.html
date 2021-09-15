@@ -1,0 +1,827 @@
+<!-- The Code has been successfully written and executed in Visual Studio Code and Google Chrome Browser-->
+<!-- Have the Images Day.png, Logo.png and Night.png in the same folder before loading the web page -->
+<!-- In Each Job Box we can scroll content up and down for user convinience -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- head tag -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@500&display=swap" rel="stylesheet">
+    <title>Sahil GDSC Task</title>
+
+    <!-- Internal CSS Style Sheet -->
+    <style>
+        /* All text will be of Kumbh sans font */
+        * {
+            font-family: 'Kumbh Sans', sans-serif;
+        }
+
+        body {
+            background-color: #F4F6F8;
+            width: 100%;
+            margin: 0px;
+        }
+
+        .heading {
+            background-color: #5964E0;
+            border-bottom-left-radius: 100px;
+            height: 160px;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            color: white;
+        }
+
+        .navbar ul {
+            overflow: auto;
+            margin: 0px;
+        }
+
+        .navbar ul li {
+            text-decoration: none;
+            float: left;
+            list-style: none;
+            padding: 3px 8px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .navbar ul li a:hover,
+        .Button a:hover {
+            color: black;
+        }
+
+        h1 {
+            color: white;
+            margin: 44px 924px 84px 165px;
+        }
+
+        .PageTitle,
+        .ToggleSwitch {
+            display: inline-block;
+            /*To bring them in a single line*/
+        }
+
+        /*Slider part*/
+        .ToggleSwitch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 22px;
+        }
+
+        /* Hiding the actual checkbox of html */
+        .ToggleSwitch input {
+            position: relative;
+            opacity: 0;
+            width: 115px;
+            height: 14px;
+            bottom: 34px;
+            left: -40px;
+            z-index: 1;
+        }
+
+        .slider {
+            z-index: 0;
+            position: absolute;
+            cursor: pointer;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            background-color: white;
+            border-radius: 34px;
+            transition: 0.4s;
+
+        }
+
+        .slider:hover {
+            background-color: #F4F6F8;
+        }
+
+        /* Switch icons */
+        #DayImage {
+            position: relative;
+            right: 40px;
+            bottom: 6px;
+        }
+
+        #NightImage {
+            position: relative;
+            left: 50px;
+            bottom: 62px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 17px;
+            width: 17px;
+            left: 4px;
+            bottom: 2.75px;
+            background-color: #5964E0;
+            border-radius: 50%;
+            transition: 0.4s;
+            /*To make it a circle*/
+        }
+
+        /* To make slider move */
+        input:checked+.slider:before {
+            transform: translateX(15px);
+        }
+
+        input:checked+.slider {
+            background-color: black;
+        }
+
+        /* To move the whole switch if needed */
+        .ToggleSwitch {
+            position: relative;
+            top: 65px;
+        }
+
+        section {
+            margin: 112.5px 150px 26px 150px;
+            text-align: center;
+        }
+
+        .JobBox {
+            position: relative;
+            display: inline-block;
+
+        }
+
+        .JobLogo {
+            position: absolute;
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border-radius: 15px;
+            bottom: 228px;
+            left: 48px;
+            z-index: 1;
+        }
+
+        .JobInfo {
+            background-color: white;
+            display: inline-block;
+            margin: 32.5px 15px;
+            padding: 40px 32px 32px 32px;
+            width: 286px;
+            height: 146px;
+            border-radius: 6px;
+            z-index: 0;
+            text-align: left;
+            overflow: scroll;
+        }
+
+        .JobInfo::-webkit-scrollbar {
+            display: none;
+        }
+
+        .JobName {
+            font-weight: 700;
+            font-size: 20px;
+            margin: 8px 0px;
+            height: 30px;
+        }
+
+        .TimePosted,
+        .Type,
+        .CompanyName {
+            font-weight: 400;
+            font-size: 16px;
+            margin: 8px 0px;
+            color: #6E8098;
+        }
+
+        .SepratingDot {
+            font-weight: 400;
+            color: #6E8098;
+            font-size: 30px;
+        }
+
+        .TimePosted {
+            margin: 8px 0px;
+            margin-right: 10px;
+
+        }
+
+        .Type {
+            margin: 8px 0px;
+            margin-left: 10px;
+
+        }
+
+        .PlaceName {
+            margin: 8px 0px;
+            font-weight: 700;
+            font-size: 14px;
+
+        }
+
+        .Line1,
+        .Line2,
+        .Line3,
+        .Line4 {
+            height: 30px;
+            margin: 8px 0px;
+        }
+
+        .JobBox a {
+            text-decoration: none;
+            color: #5964E0;
+        }
+
+        .Button {
+            width: fit-content;
+            margin: 30px auto;
+            margin-bottom: 60px;
+            padding: 10px 20px;
+            border: none;
+            color: white;
+            background-color: #5964E0;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .Button a {
+            text-decoration: none;
+            color: white;
+        }
+
+
+        @media only screen and (max-width: 1500px) {
+            h1 {
+                margin-right: 924px;
+            }
+        }
+
+        @media only screen and (max-width: 1300px) {
+            h1 {
+                margin-right: 500px;
+            }
+        }
+
+        @media only screen and (max-width: 900px) {
+            h1 {
+                margin-right: 250px;
+            }
+        }
+
+        @media only screen and (max-width: 650px) {
+            h1 {
+                margin-left: 50px;
+            }
+
+            section {
+                margin-left: 75px;
+                margin-right: 75px;
+            }
+        }
+
+        @media only screen and (max-width: 500px) {
+            h1 {
+                margin-right: 70px;
+                margin-left: 50px;
+            }
+
+            section {
+                margin-left: 5px;
+                margin-right: 5px;
+            }
+        }
+
+        @media only screen and (max-width: 400px) {
+            h1 {
+                margin-right: 50px;
+                margin-left: 30px;
+            }
+        }
+
+        @media only screen and (max-width: 300px) {
+            h1 {
+                margin-right: 10px;
+                margin-left: 75px;
+                display: block;
+            }
+
+            .ToggleSwitch {
+                display: block;
+                left: 115px;
+                top: -45px;
+            }
+
+            .heading {
+                height: fit-content;
+            }
+        }
+
+        .DarkModeOnBody {
+            background-color: black;
+        }
+
+        .DarkModeOnHeading {
+            background-color: #2e2cc0;
+        }
+    </style>
+</head>
+
+<!-- body tag -->
+
+<body>
+    <header class="heading">
+        <div>
+            <nav class="navbar">
+                <ul>
+                    <li class="home"><a href="#">Home</a></li>
+                    <li class="desktop"><a href="#">Desktop</a></li>
+                    <li class="light"><a href="#">Light</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div>
+            <div class="PageTitle">
+                <h1>
+                    devjobs
+                </h1>
+            </div>
+            <div class="ToggleSwitch">
+                <img id="DayImage" src="/Day.png" alt="Day">
+                <input type="checkbox" name="CheckBoxScreenType" id="CheckBoxScreenType" onclick="ChangeScreenMode()">
+                <span class="slider"></span>
+                <img id="NightImage" src="/Night.png" alt="Night">
+            </div>
+
+        </div>
+
+    </header>
+    <section>
+
+        <!-- Senior Software Engineer -->
+        <div class="JobBox">
+            <div>
+                <img class="JobLogo" src="/Logo.png" alt="Logo" width="50" height="50">
+            </div>
+            <div class="JobInfo">
+
+                <!-- How ago was the job posted -->
+                <!-- Type of job -->
+                <div id="Line1">
+                    <span class="TimePosted">5h ago</span>
+                    <span class="SepratingDot">.</span>
+                    <!-- <span class="spaceinbox"></span> -->
+                    <span class="Type">Full Time</span>
+                </div>
+
+                <!-- Name of Job -->
+                <div class="Line2">
+                    <span class="JobName">Senior Software Engineer</span>
+                </div>
+
+                <!-- Company Name -->
+                <div class="Line3">
+                    <span class="CompanyName">So Digital Inc.</span>
+                </div>
+
+                <!-- Place of Job -->
+                <div class="Line4">
+                    <span class="PlaceName">
+                        <a href="#">Remote</a><span>,</span>
+                        <a href="#">Seoul</a><span>,</span>
+                        <a href="#">Tokyo</a><span>,</span>
+                        <a href="#">Mountain View</a><span>,</span>
+                        <a href="#">San Fransisco</a><span>.</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <!-- Haskel and PureScript Dev -->
+        <div class="JobBox">
+            <div>
+                <img class="JobLogo" src="/Logo.png" alt="Logo" width="50" height="50">
+            </div>
+            <div class="JobInfo">
+
+                <!-- How ago was the job posted -->
+                <!-- Type of job -->
+                <div id="Line1">
+                    <span class="TimePosted">20h ago</span>
+                    <span class="SepratingDot">.</span>
+                    <!-- <span class="spaceinbox"></span> -->
+                    <span class="Type">Part Time</span>
+                </div>
+
+                <!-- Name of Job -->
+                <div class="Line2">
+                    <span class="JobName">Haskel and PureScript Dev</span>
+                </div>
+
+                <!-- Company Name -->
+                <div class="Line3">
+                    <span class="CompanyName">National Wildlife</span>
+                </div>
+
+                <!-- Place of Job -->
+                <div class="Line4">
+                    <span class="PlaceName">
+                        <a href="#">Columbus</a><span>,</span>
+                        <a href="#">OH</a><span>.</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Midlevel Backend Engineer -->
+        <div class="JobBox">
+            <div>
+                <img class="JobLogo" src="/Logo.png" alt="Logo" width="50" height="50">
+            </div>
+            <div class="JobInfo">
+
+                <!-- How ago was the job posted -->
+                <!-- Type of job -->
+                <div id="Line1">
+                    <span class="TimePosted">1d ago</span>
+                    <span class="SepratingDot">.</span>
+                    <!-- <span class="spaceinbox"></span> -->
+                    <span class="Type">Part Time</span>
+                </div>
+
+                <!-- Name of Job -->
+                <div class="Line2">
+                    <span class="JobName">Midlevel Backend Engineer</span>
+                </div>
+
+                <!-- Company Name -->
+                <div class="Line3">
+                    <span class="CompanyName">Photosnap Ltd.</span>
+                </div>
+
+                <!-- Place of Job -->
+                <div class="Line4">
+                    <span class="PlaceName">
+                        <a href="#">Russia</a><span>,</span>
+                        <a href="#">Delhi</a><span>,</span>
+                        <a href="#">Mumbai</a><span>.</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Senior Application Engineer -->
+        <div class="JobBox">
+            <div>
+                <img class="JobLogo" src="/Logo.png" alt="Logo" width="50" height="50">
+            </div>
+            <div class="JobInfo">
+
+                <!-- How ago was the job posted -->
+                <!-- Type of job -->
+                <div id="Line1">
+                    <span class="TimePosted">2d ago</span>
+                    <span class="SepratingDot">.</span>
+                    <!-- <span class="spaceinbox"></span> -->
+                    <span class="Type">Full Time</span>
+                </div>
+
+                <!-- Name of Job -->
+                <div class="Line2">
+                    <span class="JobName">Senior Application Engineer</span>
+                </div>
+
+                <!-- Company Name -->
+                <div class="Line3">
+                    <span class="CompanyName">Extreme Division</span>
+                </div>
+
+                <!-- Place of Job -->
+                <div class="Line4">
+                    <span class="PlaceName">
+                        <a href="#">Germany</a><span>,</span>
+                        <a href="#">Seoul</a><span>,</span>
+                        <a href="#">Tokyo</a><span>.</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Remote DevOps Engineer -->
+        <div class="JobBox">
+            <div>
+                <img class="JobLogo" src="/Logo.png" alt="Logo" width="50" height="50">
+            </div>
+            <div class="JobInfo">
+
+                <!-- How ago was the job posted -->
+                <!-- Type of job -->
+                <div id="Line1">
+                    <span class="TimePosted">2d ago</span>
+                    <span class="SepratingDot">.</span>
+                    <!-- <span class="spaceinbox"></span> -->
+                    <span class="Type">Part Time</span>
+                </div>
+
+                <!-- Name of Job -->
+                <div class="Line2">
+                    <span class="JobName">Remote DevOps Engineer</span>
+                </div>
+
+                <!-- Company Name -->
+                <div class="Line3">
+                    <span class="CompanyName">Multifold</span>
+                </div>
+
+                <!-- Place of Job -->
+                <div class="Line4">
+                    <span class="PlaceName">
+                        <a href="#">England</a><span>,</span>
+                        <a href="#">USA</a><span>,</span>
+                        <a href="#">Canada</a><span>,</span>
+                        <a href="#">Ireland</a><span>,</span>
+                        <a href="#">San Fransisco</a><span>.</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Desktop Support Manager -->
+        <div class="JobBox">
+            <div>
+                <img class="JobLogo" src="/Logo.png" alt="Logo" width="50" height="50">
+            </div>
+            <div class="JobInfo">
+
+                <!-- How ago was the job posted -->
+                <!-- Type of job -->
+                <div id="Line1">
+                    <span class="TimePosted">4d ago</span>
+                    <span class="SepratingDot">.</span>
+                    <!-- <span class="spaceinbox"></span> -->
+                    <span class="Type">Part Time</span>
+                </div>
+
+                <!-- Name of Job -->
+                <div class="Line2">
+                    <span class="JobName">Desktop Support Manager</span>
+                </div>
+
+                <!-- Company Name -->
+                <div class="Line3">
+                    <span class="CompanyName">Hardsoft Computing</span>
+                </div>
+
+                <!-- Place of Job -->
+                <div class="Line4">
+                    <span class="PlaceName">
+                        <a href="#">Japan</a><span>,</span>
+                        <a href="#">Seoul</a><span>.</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- iOS Engineer -->
+        <div class="JobBox">
+            <div>
+                <img class="JobLogo" src="/Logo.png" alt="Logo" width="50" height="50">
+            </div>
+            <div class="JobInfo">
+
+                <!-- How ago was the job posted -->
+                <!-- Type of job -->
+                <div id="Line1">
+                    <span class="TimePosted">1w ago</span>
+                    <span class="SepratingDot">.</span>
+                    <!-- <span class="spaceinbox"></span> -->
+                    <span class="Type">Full Time</span>
+                </div>
+
+                <!-- Name of Job -->
+                <div class="Line2">
+                    <span class="JobName">iOS Engineer</span>
+                </div>
+
+                <!-- Company Name -->
+                <div class="Line3">
+                    <span class="CompanyName">Blocksoft</span>
+                </div>
+
+                <!-- Place of Job -->
+                <div class="Line4">
+                    <span class="PlaceName">
+                        <a href="#">Anywhere</a><span>.</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Senior EJB Developer -->
+        <div class="JobBox">
+            <div>
+                <img class="JobLogo" src="/Logo.png" alt="Logo" width="50" height="50">
+            </div>
+            <div class="JobInfo">
+
+                <!-- How ago was the job posted -->
+                <!-- Type of job -->
+                <div id="Line1">
+                    <span class="TimePosted">1w ago</span>
+                    <span class="SepratingDot">.</span>
+                    <!-- <span class="spaceinbox"></span> -->
+                    <span class="Type">Full Time</span>
+                </div>
+
+                <!-- Name of Job -->
+                <div class="Line2">
+                    <span class="JobName">Senior EJB Developer</span>
+                </div>
+
+                <!-- Company Name -->
+                <div class="Line3">
+                    <span class="CompanyName">Color Logic</span>
+                </div>
+
+                <!-- Place of Job -->
+                <div class="Line4">
+                    <span class="PlaceName">
+                        <a href="#">Berlin</a><span>,</span>
+                        <a href="#">Seoul</a><span>,</span>
+                        <a href="#">San Fransisco</a><span>.</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Senior Frontend Developer -->
+        <div class="JobBox">
+            <div>
+                <img class="JobLogo" src="/Logo.png" alt="Logo" width="50" height="50">
+            </div>
+            <div class="JobInfo">
+
+                <!-- How ago was the job posted -->
+                <!-- Type of job -->
+                <div id="Line1">
+                    <span class="TimePosted">1w ago</span>
+                    <span class="SepratingDot">.</span>
+                    <!-- <span class="spaceinbox"></span> -->
+                    <span class="Type">Part Time</span>
+                </div>
+
+                <!-- Name of Job -->
+                <div class="Line2">
+                    <span class="JobName">Senior Frontend Developer</span>
+                </div>
+
+                <!-- Company Name -->
+                <div class="Line3">
+                    <span class="CompanyName">Outerwest International</span>
+                </div>
+
+                <!-- Place of Job -->
+                <div class="Line4">
+                    <span class="PlaceName">
+                        <a href="#">Afganistan</a><span>,</span>
+                        <a href="#">Tokyo</a><span>,</span>
+                        <a href="#">San Fransisco</a><span>.</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- App and Website Designer -->
+        <div class="JobBox">
+            <div>
+                <img class="JobLogo" src="/Logo.png" alt="Logo" width="50" height="50">
+            </div>
+            <div class="JobInfo">
+
+                <!-- How ago was the job posted -->
+                <!-- Type of job -->
+                <div id="Line1">
+                    <span class="TimePosted">2w ago</span>
+                    <span class="SepratingDot">.</span>
+                    <!-- <span class="spaceinbox"></span> -->
+                    <span class="Type">Freelance</span>
+                </div>
+
+                <!-- Name of Job -->
+                <div class="Line2">
+                    <span class="JobName">App and Website Designer</span>
+                </div>
+
+                <!-- Company Name -->
+                <div class="Line3">
+                    <span class="CompanyName">Almost Yellow</span>
+                </div>
+
+                <!-- Place of Job -->
+                <div class="Line4">
+                    <span class="PlaceName">
+                        <a href="#">Tokyo</a><span>,</span>
+                        <a href="#">San Fransisco</a><span>.</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fullstack Developer -->
+        <div class="JobBox">
+            <div>
+                <img class="JobLogo" src="/Logo.png" alt="Logo" width="50" height="50">
+            </div>
+            <div class="JobInfo">
+
+                <!-- How ago was the job posted -->
+                <!-- Type of job -->
+                <div id="Line1">
+                    <span class="TimePosted">1mo ago</span>
+                    <span class="SepratingDot">.</span>
+                    <!-- <span class="spaceinbox"></span> -->
+                    <span class="Type">Part Time</span>
+                </div>
+
+                <!-- Name of Job -->
+                <div class="Line2">
+                    <span class="JobName">Fullstack Developer</span>
+                </div>
+
+                <!-- Company Name -->
+                <div class="Line3">
+                    <span class="CompanyName">Destiny</span>
+                </div>
+
+                <!-- Place of Job -->
+                <div class="Line4">
+                    <span class="PlaceName">
+                        <a href="#">India</a><span>,</span>
+                        <a href="#">Hong-Kong</a><span>.</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Lead Engineer -->
+        <div class="JobBox">
+            <div>
+                <img class="JobLogo" src="/Logo.png" alt="Logo" width="50" height="50">
+            </div>
+            <div class="JobInfo">
+
+                <!-- How ago was the job posted -->
+                <!-- Type of job -->
+                <div id="Line1">
+                    <span class="TimePosted">4d ago</span>
+                    <span class="SepratingDot">.</span>
+                    <!-- <span class="spaceinbox"></span> -->
+                    <span class="Type">Part Time</span>
+                </div>
+
+                <!-- Name of Job -->
+                <div class="Line2">
+                    <span class="JobName">Technical Lead Engineer</span>
+                </div>
+
+                <!-- Company Name -->
+                <div class="Line3">
+                    <span class="CompanyName">Synoide Inc.</span>
+                </div>
+
+                <!-- Place of Job -->
+                <div class="Line4">
+                    <span class="PlaceName">
+                        <a href="#">San Fransisco</a><span>.</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="Button">
+        <a href="#">Load More</a>
+    </div>
+
+    <!-- Javascript -->
+    <script>
+        function ChangeScreenMode() {
+            var body_element = document.body;
+            body_element.classList.toggle("DarkModeOnBody");
+        }
+    </script>
+
+</body>
+
+</html>
